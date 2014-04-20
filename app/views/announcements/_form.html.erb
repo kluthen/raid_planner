@@ -2,5 +2,7 @@
   <%= f.input :title, label: "Titre" %>
   <%= f.input :user_id, as: :hidden %>
   <%= f.input :content, :input_html => {:size => "100x30"} %>
+  <br/>
+  <small class="width-100 well well-sm "><a href="http://kramdown.gettalong.org/quickref.html" target="_"> Ici vous trouverez les informations pour faire la mise en pages des articles ... </a></small> <br/><br/>
   <%= f.submit @announcement.new_record? ? "Créer l'annonce" : "Modifier l'annonce" , class: "btn btn-default btn-md"%>
 <% end %>
