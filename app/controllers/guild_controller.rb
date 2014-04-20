@@ -13,31 +13,34 @@ class GuildController < ApplicationController
   end
 
   def promote_user
+    @users = User.all
   	if @user.nil?
-  		render about_path, notice: "Utilisateur inconnu"
+  		render about_path, alert: "Utilisateur inconnu"
   	else
   		@user.is_admin = true
   		@user.save
-  		render about_path, "Promotion effectuée"
+  		render about_path, notice: "Promotion effectuée"
   	end
   end
 
   def demote_user
+    @users = User.all
   	if @user.nil?
-  		render about_path, notice: "Utilisateur inconnu"
+  		render about_path, alert: "Utilisateur inconnu"
   	else
   		@user.is_admin = false
   		@user.save
-  		render about_path, "Démotion effectuée"
+  		render about_path, notice: "Démotion effectuée"
   	end
   end
 
   def remove_user
+    @users = User.all
   	if @user.nil?
-  		render about_path, notice: "Utilisateur inconnu"
+  		render about_path, alert: "Utilisateur inconnu"
   	else
   		@user.destroy
-  		render about_path, "Utilisateur supprimer"
+  		render about_path, notice: "Utilisateur supprimer"
   	end
   end
 

@@ -10,7 +10,7 @@
 	<tr>
 		<td><%= user.username %></td>
 		<td><%= user.email %></td>
-		<td><%= link_to "Devien admin", user_promote_admin_path(user), class: "btn btn-default btn-md" if not user.is_admin%> <%= link_to "Devien utilisateur", user_demote_admin_path(user) , class: "btn btn-default btn-md" if user.is_admin and user != current_user %>&nbsp;<%= link_to "Supprimer", user_delete_path(user), class: "btn btn-default btn-md"  if user != current_user  %> <%= "Ne peux rien faire sur soit même" if current_user == user %></td>
+		<td><%= link_to "Devien admin", user_promote_admin_path(user), method: :put, class: "btn btn-default btn-md" if not user.is_admin%> <%= link_to "Devien utilisateur", user_demote_admin_path(user) , method: :put, class: "btn btn-default btn-md" if user.is_admin and user != current_user %>&nbsp;<%= link_to "Supprimer", user_delete_path(user),method: :delete, data: { confirm: 'Etes vous sure ?' } , class: "btn btn-default btn-md"  if user != current_user  %> <%= "Ne peux rien faire sur soit même" if current_user == user %></td>
 	</tr>
 	<% end %>
 </table>

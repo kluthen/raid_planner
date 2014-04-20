@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   put 'guild/promote_user/:uid' => 'guild#promote_user' , as: :user_promote_admin
   put 'guild/demote_user/:uid'  => 'guild#demote_user', as: :user_demote_admin
-  put 'guild/remove_user/:uid'  => 'guild#remove_user', as: :user_delete
+  delete 'guild/remove_user/:uid'  => 'guild#remove_user', as: :user_delete
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
