@@ -1,3 +1,7 @@
 <h1>Modifier Evènement</h1>
 
 <%= render 'form' %>
+
+
+<br/>
+<%= link_to 'Supprimer', @event, method: :delete, data: { confirm: 'Etes vous sure ?' }, class: "btn btn-default btn-md" %>

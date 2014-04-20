@@ -1,3 +1,6 @@
 <h1>Modifier Annonce</h1>
 
 <%= render 'form' %>
+
+<br/>
+<%= link_to 'Supprimer', @announcement, method: :delete, data: { confirm: 'Etes vous sure ?' }, class: "btn btn-default btn-md" %>
