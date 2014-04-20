@@ -9,7 +9,7 @@
   <%= f.input :start_time, label: "Debute" %>
   <%= f.input :players_required, collection: 2..60, label: "Nombre de joueurs requis" %>
   <%= f.input :description, label: "Description", :input_html => {:size => "60x5"} %>
-  <%= f.association :users, collection: User.all.order("username"), label_method: :username, value_method: :id, label: "Raid Leader"%>
+  <%= f.association :users, collection: User.all.order("username"), label_method: :username, value_method: :id, input_html:{class: "raid_leads_tags_ids", style: "width: 400px;", data: {placeholder: "Entrer un(des) raid leads"} } , label: "Raid Leader"%>
     </div>
   <%= f.simple_fields_for :roles do |role| %>
       <div class="well well-sm">

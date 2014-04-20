@@ -12,4 +12,6 @@ $(document).ready ->
 	$("form.disponibilites").change -> 
 		$("input[data-classe='ValidDispo']").addClass("actualiser")
 
-$('.tokenfield').tokenfield()
+
+$(document).ready ->
+  $('.raid_leads_tags_ids').chosen()
