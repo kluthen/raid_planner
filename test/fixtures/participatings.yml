@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role_id: 1
+  character_id: 1
+  pickup_id: 1
+  comment: MyString
+
+two:
+  role_id: 1
+  character_id: 1
+  pickup_id: 1
+  comment: MyString

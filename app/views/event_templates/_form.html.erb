@@ -1,0 +1,16 @@
+<%= simple_form_for(@event_template) do |f| %>
+<% 5.times {@event_template.roles.build} if @event_template.new_record?%>
+<% 2.times {@event_template.roles.build}%>
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :start_time %>
+  <%= f.input :players_required, collection: 2..60 %>
+  <%= f.simple_fields_for :roles do |role| %>
+        <%= role.input :required_players %><br />
+        <%= role.association :role_type%>
+        <%= role.input :comment, :input_html => {:size => "30x3"} %><br />
+  <% end %>
+  <%= f.button :submit %>
+<% end %>
+

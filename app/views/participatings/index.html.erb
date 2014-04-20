@@ -1,0 +1,31 @@
+<h1>Listing participatings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Character</th>
+      <th>Pickup</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @participatings.each do |participating| %>
+      <tr>
+        <td><%= participating.role_id %></td>
+        <td><%= participating.character_id %></td>
+        <td><%= participating.pickup_id %></td>
+        <td><%= participating.comment %></td>
+        <td><%= link_to 'Show', participating %></td>
+        <td><%= link_to 'Edit', edit_participating_path(participating) %></td>
+        <td><%= link_to 'Destroy', participating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Participating', new_participating_path %>

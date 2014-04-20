@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Role type:</strong>
+  <%= @pickup.role_type_id %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @pickup.class_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pickup.name %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @pickup.comment %>
+</p>
+
+<%= link_to 'Edit', edit_pickup_path(@pickup) %> |
+<%= link_to 'Back', pickups_path %>

@@ -1,0 +1,25 @@
+<% if  user_signed_in? and current_user.lead?(event) %>
+  <% pickup = Pickup.new %>
+  <% pickup.build_participating %>
+  <%= simple_form_for(pickup, html: {class: "form-inline "}) do |f| %>
+    <%= f.error_notification %>
+
+    <li class="list-group-item form-inputs clearfix">
+
+      <div class="pull-right">
+        <%= f.button :submit, "Ajoute pickup" %>
+      </div>
+
+      <div class="pull-left">
+        <span class="badge" data-classe="Pickup">Pickup</span>&nbsp;
+        <%= f.input :classe, label: "Classe", collection: Character.classes , :include_blank => false%>
+        <%= f.input :name, labal: "Nom"%>
+        <%= f.simple_fields_for :participating do |p| %>
+          <%= p.input :role_id, collection: event.roles, label_method: :name, value_method: :id, :include_blank => false, label: "Role" %>
+          <%= p.input :comment, label: "Commentaire" %>
+        <%end%>
+        </div>
+    </li>
+
+  <%end%>
+<%end%>

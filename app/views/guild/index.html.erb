@@ -1,0 +1,56 @@
+
+ <div class="row">
+ 	
+ 	<div class="col-md-6">
+
+		<div class="page-header ">
+		  <h2>Prochains Evènements</h2>
+		</div>
+		<%if user_signed_in? and current_user.characters.count == 0 %>
+			<p class="alert alert-danger"><span style="background-color:darkred" title="Pas de personnages créé !" class="badge ">!</span>&nbsp;Vous devez avoir au moins un personnage pour pouvoir participer aux évènements !&nbsp;<a href="<%= new_character_path%>">&nbsp;Créez votre personnage</a>
+	      	</p>
+	    <%end%>
+	    <% if user_signed_in? %>
+		<a class="btn btn-default btn-md" href="<%= events_path %>"><i class="fa fa-edit"></i>&nbsp; Gérez vos disponibilités </a>
+		<% end %>
+		<br/><br/>
+
+	       <% @events.each do |event| %>
+		      <div class="panel panel-default">
+		        <div class="event-header panel-heading clearfix">
+		            <div class="pull-left">
+		              <h3 class="panel-title"><%= link_to event.name, event %></h3>
+		              <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%= l event.start_time, :format => :short %></small>
+		            </div>
+		            <div class="pull-right">
+		              <span class="badge "><%= event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
+		            </div>
+		        </div>
+		      </div>
+	    	<% end %>
+  	</div>
+
+    <!-- Main Blog Content -->
+    <div class="col-md-6">
+	    
+	 
+
+		<div class="page-header">
+		  <h2>Dernière Annonce !</h2>
+		</div>
+		<% @announcements.each do |an| %>
+	      <article>
+	 
+	        <h3><%= link_to an.title, announcements_path(anchor: "announcement_#{an.id}") %></h3>
+	        <h6>Auteur <%= an.user.username %> le <%= l an.created_at, format: :short %></h6>
+	 
+	            <%= an.content %>
+	 
+	        <%= link_to "Suite...", announcements_path(anchor: "announcement_#{an.id}") %>
+	 
+	      </article>
+	    <% end %>
+	        <%= link_to "Voir les autres articles", announcements_path %>
+    </div>
+</div>	
+ 

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @participating.role_id %>
+</p>
+
+<p>
+  <strong>Character:</strong>
+  <%= @participating.character_id %>
+</p>
+
+<p>
+  <strong>Pickup:</strong>
+  <%= @participating.pickup_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @participating.comment %>
+</p>
+
+<%= link_to 'Edit', edit_participating_path(@participating) %> |
+<%= link_to 'Back', participatings_path %>

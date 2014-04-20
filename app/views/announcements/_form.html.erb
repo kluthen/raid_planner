@@ -1,0 +1,6 @@
+<%= simple_form_for(@announcement) do |f| %>
+  <%= f.input :title, label: "Titre" %>
+  <%= f.input :user_id, as: :hidden %>
+  <%= f.input :content, :input_html => {:size => "50x10"} %>
+  <%= f.submit @announcement.new_record? ? "Créer l'annonce" : "Modifier l'annonce"%>
+<% end %>

@@ -1,0 +1,28 @@
+<%= simple_form_for(@character, html: {class: "form-inline"} ) do |f| %>
+  <%= f.error_notification %>
+<% 2.times {@character.character_specialisations.build} if @character.new_record?%>
+<% 2.times {@character.character_specialisations.build}%>
+    <div class="well well-sm">
+      <%= f.input :name, label: "Nom" %>
+      <%= f.input :classe, label: "Classe", collection: Character.classes %>
+      <%= f.input :comment, label: "Commentaire" %>
+    </div>
+
+        <%= f.simple_fields_for :character_specialisations do |ff| %>
+      <div class="well well-sm">
+          <%= ff.association :role_type %>
+          <%= ff.input :comment, label: "Commentaire" %>
+      </div>    
+        <% end %>
+  <%= f.submit "Créer le Personage" %>
+<% end %>
+
+   <!--  when 1
+      "Guerrier"
+    when 2
+      "Mage"
+    when 3
+      "Voleur"
+    when 4
+      "Clerc"
+    end -->

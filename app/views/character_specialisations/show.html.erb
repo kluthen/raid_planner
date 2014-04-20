@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Character:</strong>
+  <%= @character_specialisation.character_id %>
+</p>
+
+<p>
+  <strong>Role type:</strong>
+  <%= @character_specialisation.role_type_id %>
+</p>
+
+<p>
+  <strong>Ordered:</strong>
+  <%= @character_specialisation.ordered %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @character_specialisation.comment %>
+</p>
+
+<%= link_to 'Edit', edit_character_specialisation_path(@character_specialisation) %> |
+<%= link_to 'Back', character_specialisations_path %>

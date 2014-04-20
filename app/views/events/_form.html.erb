@@ -1,0 +1,22 @@
+<%= simple_form_for(@event, html: {class: 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+<% 2.times {@event.roles.build} if @event.new_record?%>
+<% 2.times {@event.roles.build}%>
+<% @event.players_required = 20 %>
+
+      <div class="well well-sm">
+  <%= f.input :name, label: "Nom" %>
+  <%= f.input :start_time, label: "Debute" %>
+  <%= f.input :players_required, collection: 2..60, label: "Nombre de joueurs requis" %>
+  <%= f.input :description, label: "Description", :input_html => {:size => "60x5"} %>
+  <%= f.association :users, collection: User.all.order("username"), label_method: :username, value_method: :id%>
+    </div>
+  <%= f.simple_fields_for :roles do |role| %>
+      <div class="well well-sm">
+        <%= role.input :required_players , label: "Nombre de joueurs requis"%>
+        <%= role.association :role_type, label: "Role"%>
+        <%= role.input :comment, :input_html => {:size => "30x3"}, label: "Commentaire" %>
+      </div>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-md-8">
+    <h2>Mes personnages</h2>
+    <% if resource.characters.count == 0 %>
+      <p class="alert alert-danger"><span style="background-color:darkred" title="Pas de personnages créé !" class="badge ">!</span>&nbsp;Vous n'avez créé aucun personnage !&nbsp;<a href="<%= new_character_path%>">&nbsp;Créez votre personnage</a>
+      </p>
+    <%else%>
+    <a href="<%= new_character_path%>" class="btn btn-default btn-md"><i class="fa fa-plus"></i>&nbsp;Nouveau personnage</a><br/><br/>
+    <table class="table">
+      <tr>
+        <th>Personnage</th>
+        <th>Classe</th>
+        <th>Spécialisations</th>
+        <th>Actions</th>
+      </tr>
+      <% resource.characters.each do |char| %>
+      <tr>
+        <td><%= char.name %></td>
+        <td><%= char.classe %></td>
+        <td><% char.role_types.each do |rt| %><span class="badge"><%= rt.name %></span>&nbsp;<%end%></td>
+        <td><%= link_to "Supprimer", char, method: :delete, data: { confirm: 'Etes vous sûr ?' } %>&nbsp;<%= link_to 'Modifier', edit_character_path(char) %></td>
+      </tr>
+      <% end %>
+    </table>
+    <%end%>
+  </div>
+  <div class="col-md-4">
+
+  <h3>Modifier mes informations</h3>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div><%= f.label :email, "Email" %><br />
+    <%= f.email_field :email, autofocus: true, size: 35 %></div>
+
+    <div><%= f.label :username, "Pseudonyme" %><br />
+    <%= f.text_field :username, autofocus: true, size: 35 %></div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>En attente de confirmation pour : <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <h3>Changer mot de passe</h3>
+
+    <div><%= f.label :current_password, "Ancien mot de passe" %> <br/>
+      <%= f.password_field :current_password, autocomplete: "off" %></div>
+
+    <div><%= f.label :password, "Nouveau Mot de passe" %><br/>
+      <%= f.password_field :password, autocomplete: "off" %></div>
+
+    <div><%= f.label :password_confirmation, "Confirmation nouveau mot de passe" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+    <div><%= f.submit "Modifier" %></div>
+  <% end %>
+
+  <h3>Supprimer mon compte</h3>
+
+  <p>Vous nous quittez déjà ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes vous sûr?" }, method: :delete %></p>
+
+  </div>
+</div>

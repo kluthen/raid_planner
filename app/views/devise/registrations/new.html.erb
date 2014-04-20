@@ -1,0 +1,20 @@
+<h2>Inscription</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email, "Email" %><br />
+  <%= f.email_field :email, autofocus: true, size: 35 %></div>
+
+  <div><%= f.label :username, "Pseudonyme" %><br />
+  <%= f.text_field :username, autofocus: true, size: 35 %></div>
+
+  <div><%= f.label :password,"Mot de passe" %><br />
+    <%= f.password_field :password, autocomplete: "off", size: 35 %></div>
+
+  <div><%= f.label :password_confirmation, "Confirmation" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", size: 35 %></div>
+
+  <br/>
+  <div><%= f.submit "Inscrivez moi !" %></div>
+<% end %>

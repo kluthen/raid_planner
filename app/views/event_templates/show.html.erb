@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event_template.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event_template.description %>
+</p>
+
+<p>
+  <strong>Players required:</strong>
+  <%= @event_template.players_required %>
+</p>
+
+<%= link_to 'Edit', edit_event_template_path(@event_template) %> |
+<%= link_to 'Back', event_templates_path %>

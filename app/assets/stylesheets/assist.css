@@ -1,0 +1,81 @@
+body { 
+	padding-top: 70px;
+}
+
+.navbar{
+	background-image: url("./backgr11.jpg"); 
+	background-repeat: repeat-x;
+	font-weight: bold;
+	box-shadow: 0px 0px 12px #aaa;
+}
+
+.panel-heading[data-classe="RoleBesoin"] {
+	padding: 5px 10px;
+}
+
+form.form-inline div.control-group { display: inline-block; }
+form.form-inline div.control-group div.controls { display: inline-block; }
+
+.badge[data-classe="Guerrier"] {
+	background-color: #CC0000; /* Rouge */
+}
+
+.badge[data-classe="Clerc"] {
+	background-color: #3A7A3A; /* Vert */
+}
+
+.badge[data-classe="Mage"] {
+	background-color: #9900CC; /* Violet */
+}
+
+.badge[data-classe="Voleur"] {
+	background-color: #CCCC00; /* Jaune */
+}
+
+.badge[data-classe="Pickup"] {
+	background-color: #3066B4; /* Bleu */
+}
+
+.badge[data-classe="Indisponible"] {
+	background-color: darkred; 
+}
+
+.badge[data-classe="Force"] {
+	background-color: darkred; 
+}
+
+input[data-classe="NonDispo"]{ background-color: #CC0000; /* Rouge */ }
+input[data-classe="NonDispo"]:hover{ background-color: #E06666; /* Rouge */}
+
+input[data-classe="Dispo"] { background-color: #3A7A3A; /* Vert */ }
+input[data-classe="Dispo"]:hover{ background-color: #75A275; /* Vert */}
+
+input[data-classe="ValidDispo"]{ background-color: #3066B4; /* Bleu */ }
+input[data-classe="ValidDispo"]:hover{ background-color: #6E94CA; /* Bleu */ }
+
+input[data-classe="ValidDispo"].actualiser{ background-color: #FABF5A; /* Orange */ }
+input[data-classe="ValidDispo"].actualiser:hover{ background-color: #FFAD5C; /* Orange */ }
+
+input[data-classe="NonDispo"], input[data-classe="Dispo"], 
+input[data-classe="NonDispo"]:hover, input[data-classe="Dispo"]:hover,
+input[data-classe="ValidDispo"], input[data-classe="ValidDispo"]:hover{ color: white; }
+
+.panel-heading[data-classe="ListIndispo"]{ background-color: #CC0000; color: white; }
+
+.form-inline .control-group {
+	padding-right: 20px;
+}
+
+.form-inline .control-group label {
+	padding-right: 10px;
+}
+
+.panel-heading.event-header {
+	background-color: #DFEBED;
+}
+
+
+.panel-heading.event-subheader {
+	background-color: #DFEDE7;
+}
+

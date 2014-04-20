@@ -1,0 +1,33 @@
+<%= form_for(@character_specialisation) do |f| %>
+  <% if @character_specialisation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@character_specialisation.errors.count, "error") %> prohibited this character_specialisation from being saved:</h2>
+
+      <ul>
+      <% @character_specialisation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :character_id %><br>
+    <%= f.number_field :character_id %>
+  </div>
+  <div class="field">
+    <%= f.label :role_type_id %><br>
+    <%= f.number_field :role_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ordered %><br>
+    <%= f.number_field :ordered %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_field :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

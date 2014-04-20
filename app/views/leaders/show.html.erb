@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @leader.user_id %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @leader.event_id %>
+</p>
+
+<%= link_to 'Edit', edit_leader_path(@leader) %> |
+<%= link_to 'Back', leaders_path %>
