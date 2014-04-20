@@ -3,7 +3,7 @@ body {
 }
 
 .navbar{
-	background-image: url("./backgr11.jpg"); 
+	background-image: url("backgr11.jpg"); 
 	background-repeat: repeat-x;
 	font-weight: bold;
 	box-shadow: 0px 0px 12px #aaa;
