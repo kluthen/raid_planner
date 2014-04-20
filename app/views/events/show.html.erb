@@ -15,7 +15,7 @@
   </div>
   <% unless @event.description.empty? %>
   <div class="panel-body">
-    <%= @event.description %>
+    <%= markdown(@event.description) %>
   </div>
   <%end%>
 

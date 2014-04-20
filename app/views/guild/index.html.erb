@@ -44,7 +44,7 @@
 	        <h3><%= link_to an.title, announcements_path(anchor: "announcement_#{an.id}") %></h3>
 	        <h6>Auteur <%= an.user.username %> le <%= l an.created_at, format: :short %></h6>
 	 
-	            <%= an.content %>
+	            <%= markdown(truncate(an.content, length: 200)) %>
 	 
 	        <%= link_to "Suite...", announcements_path(anchor: "announcement_#{an.id}") %>
 	 

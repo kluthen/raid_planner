@@ -19,6 +19,7 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'simple_form'
 gem 'chosen-rails'
+gem 'kramdown'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

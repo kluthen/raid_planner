@@ -29,18 +29,20 @@
         </div>
         <% @events.each do |event| %>    
           <div class="panel panel-default">
-            <div class="event-header panel-heading clearfix ">
-                <div class="pull-left">
-                  <h3 class="panel-title"><%= link_to event.name, event %></h3>
-                  <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%= l event.start_time, :format => :short %></small>
-                </div>
-                <div class="pull-right">
-                  <span class="badge "><%= event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
-                </div>
-            </div>
+            <a href="<%= event_path(event)%>">
+              <div class="event-header panel-heading clearfix ">
+                  <div class="pull-left">
+                    <h3 class="panel-title"><%= event.name %></h3>
+                    <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%= l event.start_time, :format => :short %></small>
+                  </div>
+                  <div class="pull-right">
+                    <span class="badge "><%= event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
+                  </div>
+              </div>
+            </a>
             <% unless event.description.empty? %>
             <div class="panel-body">
-              <%= event.description %>
+              <%= markdown(truncate(event.description, length: 200)) %>
             </div>
             <% end %>
 
@@ -61,15 +63,18 @@
 <% @old_events.each do |event| %>
 
       <div class="panel panel-default">
+
+            <a href="<%= event_path(event)%>">
         <div class="event-header panel-heading clearfix">
             <div class="pull-left">
-              <h3 class="panel-title"><%= link_to event.name, event %></h3>
+              <h3 class="panel-title"><%= event.name %></h3>
               <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%= l event.start_time, :format => :short %></small>
             </div>
             <div class="pull-right">
               <span class="badge "><%= event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
             </div>
         </div>
+        </a>
         <% unless event.description.empty? %>
         <div class="panel-body">
           <%= event.description %>
