@@ -11,3 +11,5 @@ $(document).ready ->
 $(document).ready ->
 	$("form.disponibilites").change -> 
 		$("input[data-classe='ValidDispo']").addClass("actualiser")
+
+$('.tokenfield').tokenfield()

@@ -1,11 +1,16 @@
 <% if user_signed_in? %>
     <div class="panel-footer form-inputs clearfix">
+    	<% if availability.new_record? %>
+    		<i class="fa fa-question-circle color-darkred"></i>    	
+    	<% else %>
+    		<i class="fa fa-check color-darkgreen"></i>
+		<% end %>
     	<%= simple_fields_for("participatings[]", availability , index: availability.object_id, html: {class: "form-inline "}) do |f| %>
       		<div class="pull-right"><%= f.input :available, label: "Disponible ?" %></div>
 		    <%= f.input :id, as: :hidden %>
 		    <%= f.input :role_id, collection: event.roles, label_method: :name, value_method: :id, :include_blank => false, label: "Role" %>
 		    <%= f.input :character_id, collection: current_user.characters, label_method: :name, value_method: :id, :include_blank => false, label: "Personnage"%>
-		    <%= f.input :comment, label: "Commentaire" %>
+		    <%= f.input :comment, label: "Commentaire", :input_html => {:size => 50 }%>
     </div>
   <% end %>
 <% end %>

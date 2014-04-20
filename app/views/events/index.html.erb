@@ -6,40 +6,52 @@
     <%end%>
 
 
-    <%= form_tag participating_create_or_update_path, class: "form-inline disponibilites" do  %>
-    <div class="clearfix">
-      <% if user_signed_in? %>
-        <div class="pull-right">
-          <%= submit_tag "Valider Mes Disponibilitées", class: "btn btn-default btn-md", "data-classe"=>"ValidDispo" %>
-        </div>
-        <a href="<%= new_event_path%>" class="btn btn-default btn-md" ><i class="fa fa-plus"></i>&nbsp;Nouvel Evènement</a>
-        <br/><br/>
-      <% end %>
-    </div>
-    <% @events.each do |event| %>    
-      <div class="panel panel-default">
-        <div class="event-header panel-heading clearfix ">
-            <div class="pull-left">
-              <h3 class="panel-title"><%= link_to event.name, event %></h3>
-              <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%= l event.start_time, :format => :short %></small>
-            </div>
+    <% if user_signed_in? and @events.count > 0 %>
+      <%= form_tag participating_create_or_update_path, class: "form-inline disponibilites" do %>
+        <div class="clearfix">
+          <% if user_signed_in? %>
             <div class="pull-right">
-              <span class="badge "><%= event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
+              <%= submit_tag "Valider Mes Disponibilitées", class: "btn btn-default btn-md", "data-classe"=>"ValidDispo" %>
+              
             </div>
+            <a href="<%= new_event_path%>" class="btn btn-default btn-md" ><i class="fa fa-plus"></i>&nbsp;Nouvel Evènement</a>
+            <br/><br/>
+              <%if @need_availability_action %>
+              <div class="alert alert-danger width-100">
+                <div class="">
+                  <i class="fa fa-exclamation-circle color-darkred"></i>  <small class=""> Vous avez des disponibilitées non-renseignées, pensez à les valider. </small>
+                </div>
+              </div>
+              <% end %>
+
+
+          <% end %>
         </div>
-        <% unless event.description.empty? %>
-        <div class="panel-body">
-          <%= event.description %>
-        </div>
+        <% @events.each do |event| %>    
+          <div class="panel panel-default">
+            <div class="event-header panel-heading clearfix ">
+                <div class="pull-left">
+                  <h3 class="panel-title"><%= link_to event.name, event %></h3>
+                  <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%= l event.start_time, :format => :short %></small>
+                </div>
+                <div class="pull-right">
+                  <span class="badge "><%= event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
+                </div>
+            </div>
+            <% unless event.description.empty? %>
+            <div class="panel-body">
+              <%= event.description %>
+            </div>
+            <% end %>
+
+            <%= render "availabilities", event: event, availability: @availabilities[event.id]  if user_signed_in?  %>
+          </div>
+
         <% end %>
-          <% av = nil %>
-          <% av = current_user.participate(event)  if user_signed_in? %>
-          <% av ||= Participating.new %>
-        <%= render "availabilities", event: event, availability: av  if user_signed_in?  %>
-      </div>
 
-    <% end %>
-
+      <% end %>
+    <% else %>
+      <a href="<%= new_event_path%>" class="btn btn-default btn-md" ><i class="fa fa-plus"></i>&nbsp;Nouvel Evènement</a>
     <% end %>
 
 <br>

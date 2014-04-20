@@ -7,6 +7,19 @@ class EventsController < ApplicationController
   def index
     @events = Event.recent
     @old_events = Event.old
+    @need_availability_action = false
+    if user_signed_in? 
+      @availabilities = []
+
+      @events.each do |evt|
+        av = current_user.participate(evt) 
+        if av.nil?
+          av = Participating.new
+          @need_availability_action = true
+        end
+        @availabilities[evt.id] = av
+      end
+    end
   end
 
   # GET /events/1

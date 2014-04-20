@@ -2,12 +2,7 @@ body {
 	padding-top: 70px;
 }
 
-.navbar{
-	background-image: url("backgr11.jpg"); 
-	background-repeat: repeat-x;
-	font-weight: bold;
-	box-shadow: 0px 0px 12px #aaa;
-}
+
 
 .panel-heading[data-classe="RoleBesoin"] {
 	padding: 5px 10px;
@@ -61,6 +56,20 @@ input[data-classe="NonDispo"]:hover, input[data-classe="Dispo"]:hover,
 input[data-classe="ValidDispo"], input[data-classe="ValidDispo"]:hover{ color: white; }
 
 .panel-heading[data-classe="ListIndispo"]{ background-color: #CC0000; color: white; }
+
+.color-darkred {
+	color: darkred;
+}
+
+.color-darkgreen {
+	color: darkgreen;
+}
+
+.width-100{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .form-inline .control-group {
 	padding-right: 20px;
