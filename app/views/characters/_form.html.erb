@@ -14,7 +14,7 @@
           <%= ff.input :comment, label: "Commentaire" %>
       </div>    
         <% end %>
-  <%= f.submit "Créer le Personage" %>
+  <%= f.submit @character.new_record? ? "Créer le Personage" : "Modifier le Personage" , class: "btn btn-default btn-md"%>
 <% end %>
 
    <!--  when 1
