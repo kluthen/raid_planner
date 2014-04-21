@@ -2,9 +2,9 @@
 
 <div class="panel panel-default">
   <div class="panel-heading clearfix event-header">
-      <div class="pull-right">
+      <div class="pull-right text-right">
         <span class="badge "><%= @event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= @event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
-        <i class="fa fa-star"></i>&nbsp; Leaders : <% @event.users.each do |user|%><%=user.username%>&nbsp;<%end%>
+        <% @event.users.each do |user|%><span class="badge leaders"><i class="fa fa-star"></i>&nbsp;&nbsp;<%=user.username%></span>&nbsp;<%end%>
       </div>
 
       <div >
@@ -58,11 +58,13 @@
                       
                     </h4>
                 </div>
-                <div id="collapse<%=pp.id%>" class="collapse out">
-                  <div class="panel-body">
-                    <i class="fa fa-beer"></i>&nbsp;<% pp.role_types.each do |rt| %><span class="badge"><%= rt.name %></span>&nbsp;<%end%>
+                <% if pp.pickup.nil? %>
+                  <div id="collapse<%=pp.id%>" class="collapse out">
+                    <div class="panel-body">
+                      <i class="fa fa-beer"></i>&nbsp;<% pp.character.character_specialisations.each do |cs| %><span class="badge"><%= cs.role_type.name %>&nbsp;:&nbsp;<small><%= cs.comment%></small></span>&nbsp;<%end%>
+                    </div>
                   </div>
-                </div>
+                <% end %>
             </li>
           <% end %>
           </ul>

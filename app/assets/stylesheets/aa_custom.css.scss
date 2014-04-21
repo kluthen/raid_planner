@@ -1,8 +1,13 @@
-
 @import "bootstrap";
 
+body { 
+	padding-top: 70px;
+	background-image: url-image("background.png"); 
+	background-repeat: repeat;
+}
+
 .navbar{
-	background-image: image-url("backgr11.jpg"); 
+	background-image: url-image("backgr11.jpg"); 
 	background-repeat: repeat-x;
 	font-weight: bold;
 	box-shadow: 0px 0px 12px #aaa;

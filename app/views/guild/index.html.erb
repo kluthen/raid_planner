@@ -4,7 +4,7 @@
  	<div class="col-md-6">
 
 		<div class="page-header ">
-		  <h2>Prochains Evènements</h2>
+		  <h2><i class="fa fa-calendar"></i>&nbsp;&nbsp;Prochains Evènements</h2>
 		</div>
 		<%if user_signed_in? and current_user.characters.count == 0 %>
 			<p class="alert alert-danger"><span style="background-color:darkred" title="Pas de personnages créé !" class="badge ">!</span>&nbsp;Vous devez avoir au moins un personnage pour pouvoir participer aux évènements !&nbsp;<a href="<%= new_character_path%>">&nbsp;Créez votre personnage</a>
@@ -22,7 +22,7 @@
 		              <h3 class="panel-title"><%= link_to event.name, event %></h3>
 		              <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%= l event.start_time, :format => :short %></small>
 		            </div>
-		            <div class="pull-right">
+		            <div class="pull-right text-right">
 		              <span class="badge "><%= event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
 		            </div>
 		        </div>
@@ -31,12 +31,10 @@
   	</div>
 
     <!-- Main Blog Content -->
-    <div class="col-md-6">
-	    
-	 
+    <div class="col-md-6">	 
 
 		<div class="page-header">
-		  <h2>Dernière Annonce !</h2>
+		  <h2><i class="fa fa-bookmark"></i>&nbsp;&nbsp;Dernière Annonce !</h2>
 		</div>
 		<% @announcements.each do |an| %>
 	      <article>

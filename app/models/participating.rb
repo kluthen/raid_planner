@@ -5,19 +5,19 @@ class Participating < ActiveRecord::Base
 	belongs_to :pickup
 
 	validates :role, presence: true, if: :available?
-	validates :character, presence: true, if: :not_pickup?
-	validates :pickup, presence: true, if: :not_character?
+	# validates :character, presence: true, if: :not_pickup?
+	# validates :pickup, presence: true, if: :not_character?
 
 	def available?
 		available
 	end
 
 	def not_pickup?
-		available? and pickup.nil?
+		pickup.nil?
 	end
 
 	def not_character?
-		available? and character.nil?
+		character.nil?
 	end
 
 	def target 
