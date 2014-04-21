@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
 	def actual_players
 		ct = 0
 		roles.each do |r|
-			ct += r.participating.count
+			ct += r.participating.where(available: true).count
 		end
 		ct
 	end

@@ -51,6 +51,24 @@
 
         <% end %>
 
+        <% if user_signed_in? %>
+            <div class="pull-right">
+              <%= submit_tag "Valider Mes Disponibilitées", class: "btn btn-default btn-md", "data-classe"=>"ValidDispo" %>
+              
+            </div>
+            <a href="<%= new_event_path%>" class="btn btn-default btn-md" ><i class="fa fa-plus"></i>&nbsp;Nouvel Evènement</a>
+            <br/><br/>
+              <%if @need_availability_action %>
+              <div class="alert alert-danger width-100">
+                <div class="">
+                  <i class="fa fa-exclamation-circle color-darkred"></i>  <small class=""> Vous avez des disponibilitées non-renseignées, pensez à les valider. </small>
+                </div>
+              </div>
+              <% end %>
+
+
+          <% end %>
+
       <% end %>
     <% else %>
       <a href="<%= new_event_path%>" class="btn btn-default btn-md" ><i class="fa fa-plus"></i>&nbsp;Nouvel Evènement</a>
