@@ -6,7 +6,7 @@
     <%end%>
 
 
-    <% if user_signed_in? and @events.count > 0 %>
+    <% if @events.count > 0 %>
       <%= form_tag participating_create_or_update_path, class: "form-inline disponibilites" do %>
         <div class="clearfix">
           <% if user_signed_in? %>
