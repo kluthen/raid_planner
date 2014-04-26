@@ -11,7 +11,7 @@ class Role < ActiveRecord::Base
 	end
 
 	def actual_players_count
-		pickups.count + characters.count
+		participating.where(available: true).count()
 	end
 
 end
