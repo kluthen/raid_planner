@@ -15,6 +15,7 @@ class EventsController < ApplicationController
         av = current_user.participate(evt) 
         if av.nil?
           av = Participating.new
+          av.available = false
           @need_availability_action = true
         end
         @availabilities[evt.id] = av
