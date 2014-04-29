@@ -5,8 +5,8 @@ class Event < ActiveRecord::Base
 	has_many :users, through: :leaders
 	validates :leaders, presence: true
 
-	scope :recent, -> { where("start_time > ?", 0.hour.ago) }
-	scope :old, -> { where("start_time < ? AND start_time > ?",0.hour.from_now, 5.day.ago) }
+	scope :recent, -> { where("start_time > ?", 0.hour.ago).order(start_time: :asc) }
+	scope :old, -> { where("start_time < ? AND start_time > ?",0.hour.from_now, 5.day.ago).order(start_time: :desc) }
 
 
 	accepts_nested_attributes_for :users
