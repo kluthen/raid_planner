@@ -75,9 +75,10 @@ class ParticipatingsController < ApplicationController
   # DELETE /participatings/1
   # DELETE /participatings/1.json
   def destroy
+    event =  @participating.role.event
     @participating.destroy
     respond_to do |format|
-      format.html { redirect_to @participating.role.event }
+      format.html { redirect_to event }
       format.json { head :no_content }
     end
   end
