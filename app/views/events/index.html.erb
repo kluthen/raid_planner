@@ -49,12 +49,8 @@
             <% if event.subscription_opened? %>
               <%= render "availabilities", event: event, availability: @availabilities[event.id]  if user_signed_in? %>
             <% else %>
-              <div class="panel-footer ">
-                <div class="alert alert-danger width-100">
-                  <div class="">
+              <div class="panel-footer alert-danger">
                     <i class="fa fa-gavel color-darkred"></i>  <small class=""> Inscriptions fermées !</small>
-                  </div>
-                </div>
               </div>
             <% end %>
 
