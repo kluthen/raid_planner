@@ -6,7 +6,7 @@
 
           <%= link_to 'Modifier', edit_announcement_path(announcement), class: "btn btn-default btn-sm pull-right" if user_signed_in? and current_user.is_admin? or current_user == announcement.user%>
           <div>
-            <h3><%= announcement.title %></h3>
+            <h3 class='titre_annonce'><%= announcement.title %></h3>
             <h6>Auteur <%= announcement.user.username %> le <%= l announcement.created_at, format: :short %></h6>
           </div>
         </div>

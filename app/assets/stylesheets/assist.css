@@ -3,6 +3,10 @@
 	padding: 5px 10px;
 }
 
+.titre_annonce{
+	color: #428bca;
+}
+
 form.form-inline div.control-group { display: inline-block; }
 form.form-inline div.control-group div.controls { display: inline-block; }
 

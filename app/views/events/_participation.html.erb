@@ -1,4 +1,4 @@
-<% unless  not user_signed_in? or current_user.participate?(event) or not event.subscription_opened?  %>
+<% if  user_signed_in? and not current_user.participate?(event) and event.subscription_opened?  %>
 
     <li class="list-group-item form-inputs clearfix">
       <% pp = Participating.new %>
@@ -6,15 +6,6 @@
       <% pp.character = current_user.characters.first %>
       <% pp.role = event.roles.first %>
       <% pp.comment = "" %>
-      <!--<%= simple_form_for(pp, html: {class: "form-inline "}) do |f| %>
-      <%= f.input :role_id, as: :hidden%>
-      <%= f.input :character_id, as: :hidden%>
-      <%= f.input :available, as: :hidden%>
-      
-        <div class="pull-right">
-          &nbsp;<%= f.button :submit, "Non Dispo", "data-classe"=>"NonDispo" %>          
-        </div>
-      <%end%>-->
 
     <%= simple_form_for(Participating.new, html: {class: "form-inline "}) do |f| %>
       <%= f.error_notification %>
@@ -28,7 +19,10 @@
       <%= f.input :comment, label: "Commentaire" %>
       <%= f.input :available, label: "Disponible ?" %>
 
+      <% end %>
     </li>
-
-  <% end %>
+<% elsif not event.subscription_opened? %>
+  <div class="panel-footer alert-danger">
+        <i class="fa fa-gavel color-darkred"></i>  <small class=""> Inscriptions fermées !</small>
+  </div>
 <% end %>

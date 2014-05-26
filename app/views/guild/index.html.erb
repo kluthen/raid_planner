@@ -21,9 +21,15 @@
 		            <div class="pull-left">
 		              <h3 class="panel-title"><%= link_to event.name, event %></h3>
 		              <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%= l event.start_time, :format => :short %></small>
+		              <% if !event.subscription_opened? %> 
+		              	<i class="fa fa-gavel color-darkred"></i> <small class="color-darkred"> Inscriptions fermées !</small>
+		              <% end %>
 		            </div>
 		            <div class="pull-right text-right">
 		              <span class="badge "><%= event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
+        				<span class="badge palier-<%= event.tier || 1 %>">
+        					<i class="fa fa-bar-chart-o"></i>&nbsp;Palier <%= event.tier || 1 %>
+        				</span>
 		            </div>
 		        </div>
 		      </div>

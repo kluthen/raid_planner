@@ -4,13 +4,15 @@
   <div class="panel-heading clearfix event-header">
       <div class="pull-right text-right">
         <span class="badge "><%= @event.actual_players%>&nbsp;<i class="fa fa-user"></i></span> / <span class="badge "><%= @event.players_required %>&nbsp;<i class="fa fa-users"></i></span><br/>
+        <span class="badge palier-<%= @event.tier || 1 %>"><i class="fa fa-bar-chart-o"></i>&nbsp;Palier <%= @event.tier || 1 %></span>&nbsp; 
         <% @event.users.each do |user|%><span class="badge leaders"><i class="fa fa-star"></i>&nbsp;&nbsp;<%=user.username%></span>&nbsp;<%end%>
       </div>
 
       <div >
         <h3 class="panel-title"><%= @event.name%></h3>
-        <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%=l @event.start_time , :format => :short %></small>
-        
+        <small>
+          <i class="glyphicon glyphicon-time"></i>&nbsp;<%= l @event.start_time, :format => :short %>
+        </small>    
       </div>
   </div>
   <% unless @event.description.empty? %>
@@ -18,12 +20,12 @@
     <%= markdown(@event.description) %>
   </div>
   <%end%>
-
-        <ul class="list-group">
-          <%= render "participation", :event => @event %>
-          <%= render "pickup", :event => @event %>
-          <%= render "force_invite", :event => @event %>
-        </ul>
+    <ul class="list-group">
+      <%= render "participation", :event => @event %>
+      <%= render "pickup", :event => @event %>
+      <%= render "force_invite", :event => @event %>
+    </ul>
+        
 
   <div class="panel-group" id="accordion">
   <% @event.roles.each do |role| %>

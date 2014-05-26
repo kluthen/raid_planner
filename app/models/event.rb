@@ -5,8 +5,8 @@ class Event < ActiveRecord::Base
 	has_many :users, through: :leaders
 	validates :leaders, presence: true
 
-	scope :recent, -> { where("start_time > ?", 0.hour.ago).order(start_time: :asc) }
-	scope :old, -> { where("start_time < ? AND start_time > ?",0.hour.from_now, 10.day.ago).order(start_time: :desc) }
+	scope :recent, -> { where("start_time > ?", (DateTime.now.utc + DateTime.now.utc_offset.seconds)).order(start_time: :asc) }
+	scope :old, -> { where("start_time < ? AND start_time > ?",DateTime.now.utc + DateTime.now.utc_offset.seconds, 10.day.ago).order(start_time: :desc) }
 
 
 	accepts_nested_attributes_for :users
@@ -21,6 +21,6 @@ class Event < ActiveRecord::Base
 	end
 
 	def subscription_opened? 
-		30.minutes.from_now < start_time
+		DateTime.now.utc + DateTime.now.utc_offset.seconds  < (start_time - 30.minutes) 
 	end
 end
