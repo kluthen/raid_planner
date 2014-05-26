@@ -31,6 +31,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event.tier = 1
   end
 
   # GET /events/1/edit
@@ -85,6 +86,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :start_time, :meet_time, :players_required, user_ids: [], roles_attributes: [:id, :required_players, :role_type_id, :comment])
+      params.require(:event).permit(:name, :description, :start_time,:tier, :meet_time, :players_required, user_ids: [], roles_attributes: [:id, :required_players, :role_type_id, :comment])
     end
 end

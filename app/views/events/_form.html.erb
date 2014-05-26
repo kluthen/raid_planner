@@ -8,6 +8,7 @@
   <%= f.input :name, label: "Nom" %>
   <%= f.input :start_time, label: "Debute" %>
   <%= f.input :players_required, collection: 2..60, label: "Nombre de joueurs requis" %>
+  <%= f.input :tier, label: "Palier", collection: 0..10 %>
   <%= f.input :description, label: "Description", :input_html => {:size => "60x5"} %>
   <%= f.association :users, collection: User.all.order("username"), label_method: :username, value_method: :id, input_html:{class: "raid_leads_tags_ids", style: "width: 400px;", data: {placeholder: "Entrer un(des) raid leads"} } , label: "Raid Leader"%>
     </div>

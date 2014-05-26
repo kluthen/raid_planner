@@ -1,4 +1,4 @@
-<% unless  not user_signed_in? or current_user.participate?(event) %>
+<% unless  not user_signed_in? or current_user.participate?(event) or not event.subscription_opened?  %>
 
     <li class="list-group-item form-inputs clearfix">
       <% pp = Participating.new %>

@@ -34,6 +34,7 @@ form.form-inline div.control-group div.controls { display: inline-block; }
 	background-color: darkred; 
 }
 
+
 input[data-classe="NonDispo"]{ background-color: #CC0000; /* Rouge */ }
 input[data-classe="NonDispo"]:hover{ background-color: #E06666; /* Rouge */}
 
@@ -79,3 +80,20 @@ input[data-classe="ValidDispo"], input[data-classe="ValidDispo"]:hover{ color: w
 .badge { background-color: #0489B1; }
 .badge.leaders{ background-color: #FABF5A; }
 small.leaders{ color: #FABF5A; }
+
+
+.badge.palier-0 {
+	background-color: #3A7A3A; /* Vert */	
+}
+.badge.palier-1 {
+	background-color: #CCCC00; /* Jaune */	
+}
+.badge.palier-2 {
+	background-color: #CC0000; /* Rouge */	
+}
+.badge.palier-3 {
+	background-color: #9900CC; /* Violet */	
+}
+.badge.palier-4 {
+	background-color: #9900CC; /* Violet */	
+}

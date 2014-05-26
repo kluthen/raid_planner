@@ -19,4 +19,8 @@ class Event < ActiveRecord::Base
 		end
 		ct
 	end
+
+	def subscription_opened? 
+		30.minutes.from_now < start_time
+	end
 end

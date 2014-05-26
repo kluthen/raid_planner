@@ -32,7 +32,7 @@
             <a href="<%= event_path(event)%>">
               <div class="event-header panel-heading clearfix ">
                   <div class="pull-left">
-                    <h3 class="panel-title"><%= event.name %></h3>
+                    <h3 class="panel-title"><span class="badge palier-<%= event.tier || 1 %>">Palier: <%= event.tier || 1 %></span> &nbsp; <%= event.name %></h3>
                     <small><i class="glyphicon glyphicon-time"></i>&nbsp;<%= l event.start_time, :format => :short %></small>
                   </div>
                   <div class="pull-right">
@@ -46,7 +46,18 @@
             </div>
             <% end %>
 
-            <%= render "availabilities", event: event, availability: @availabilities[event.id]  if user_signed_in?  %>
+            <% if event.subscription_opened? %>
+              <%= render "availabilities", event: event, availability: @availabilities[event.id]  if user_signed_in? %>
+            <% else %>
+              <div class="panel-footer ">
+                <div class="alert alert-danger width-100">
+                  <div class="">
+                    <i class="fa fa-gavel color-darkred"></i>  <small class=""> Inscriptions fermées !</small>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
           </div>
 
         <% end %>
