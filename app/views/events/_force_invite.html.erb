@@ -5,7 +5,7 @@
 
       <div class="badge" data-classe="Force">Force</div> &nbsp;
       <div class="pull-right">
-        <%= f.input :available, label: "Disponible ?"%>
+        <%= f.input :available, label: "Disponible ?", as: :select, collection: {"Absent" => 0, "Présent" => 1, "Pas sûre" => 2} %>
         <%= f.button :submit, "Inscrire"%>
         
       </div>

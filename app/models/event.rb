@@ -21,6 +21,6 @@ class Event < ActiveRecord::Base
 	end
 
 	def subscription_opened? 
-		DateTime.now.utc + DateTime.now.utc_offset.seconds  < (start_time - 30.minutes) 
+		DateTime.now.utc + DateTime.now.utc_offset.seconds  < (start_time - 15.minutes) 
 	end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526051023) do
+ActiveRecord::Schema.define(version: 20140615094154) do
 
   create_table "announcements", force: true do |t|
     t.string   "title"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140526051023) do
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "available",    default: true
+    t.integer  "available",    default: 0
   end
 
   create_table "pickups", force: true do |t|

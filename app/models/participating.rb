@@ -9,7 +9,15 @@ class Participating < ActiveRecord::Base
 	# validates :pickup, presence: true, if: :not_character?
 
 	def available?
-		available
+		available == 1
+	end
+
+	def away?
+		available == 0
+	end
+
+	def unsure?
+		available == 2
 	end
 
 	def not_pickup?
