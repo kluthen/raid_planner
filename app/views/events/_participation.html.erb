@@ -17,7 +17,7 @@
       <%= f.input :role_id, collection: event.roles, label_method: :name, value_method: :id, :include_blank => false, label: "Role" %>
       <%= f.input :character_id, collection: current_user.characters, label_method: :name, value_method: :id, :include_blank => false, label: "Personnage"%>
       <%= f.input :comment, label: "Commentaire" %>
-      <%= f.input :available, label: "Disponible ?", as: :select, collection: {"Absent" => 0, "Présent" => 1, "Pas sûre" => 2} %>
+      <%= f.input :available, label: "Disponible ?", as: :select, collection: {"Absent" => 0, "Présent" => 1, "Pas sûre" => 2}, include_blank: false %>
 
       <% end %>
     </li>
