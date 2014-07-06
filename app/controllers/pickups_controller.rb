@@ -27,6 +27,7 @@ class PickupsController < ApplicationController
   def create
     @pickup = Pickup.new(pickup_params)
     @pickup.role_type_id = @pickup.participating.role.role_type_id
+    @pickup.participating.available = 1
 
     respond_to do |format|
       if @pickup.save
