@@ -2,7 +2,7 @@
 
     <li class="list-group-item form-inputs clearfix">
       <% pp = Participating.new %>
-      <% pp.available = false %>
+      <% pp.available = 2 %>
       <% pp.character = current_user.characters.first %>
       <% pp.role = event.roles.first %>
       <% pp.comment = "" %>
