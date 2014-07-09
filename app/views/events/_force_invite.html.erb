@@ -1,6 +1,8 @@
 <% if user_signed_in? and current_user.lead?(event) %>
     <li class="list-group-item form-inputs clearfix">
-    <%= simple_form_for(Participating.new, html: {class: "form-inline "}) do |f| %>
+    <% pp = Participating.new %>
+    <% pp.available = 2 %>
+    <%= simple_form_for(pp, html: {class: "form-inline "}) do |f| %>
       <%= f.error_notification %>
 
       <div class="badge" data-classe="Force">Force</div> &nbsp;

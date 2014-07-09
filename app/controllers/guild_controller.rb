@@ -12,6 +12,29 @@ class GuildController < ApplicationController
   	@users = User.all
   end
 
+  def make_pickup 
+    @users = User.all
+
+    if @user.nil?
+      render about_path, alert: "Utilisateur inconnu"
+    else
+      @user.pickup = true
+      @user.save
+      render about_path, notice: "Démotion effectuée"
+    end
+  end
+
+  def make_guildmate
+    @users = User.all
+    if @user.nil?
+      render about_path, alert: "Utilisateur inconnu"
+    else
+      @user.pickup = false
+      @user.save
+      render about_path, notice: "Promotion effectuée"
+    end
+  end
+
   def promote_user
     @users = User.all
   	if @user.nil?
