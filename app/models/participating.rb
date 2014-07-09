@@ -22,7 +22,7 @@ class Participating < ActiveRecord::Base
 
 	def is_pickup?
 		if character != nil 
-			character.user.pickup == true
+			character.user.pickups == true 
 		else
 			!not_pickup? 
 		end

@@ -1,5 +1,5 @@
 class GuildController < ApplicationController
-  before_action :set_user, only: [:promote_user, :demote_user, :remove_user]
+  before_action :set_user, only: [:make_pickup, :make_guildmate, :promote_user, :demote_user, :remove_user]
   
   before_action :is_admin?, except: [:index]
 
@@ -14,11 +14,11 @@ class GuildController < ApplicationController
 
   def make_pickup 
     @users = User.all
-
+    logger.info @user.inspect
     if @user.nil?
       render about_path, alert: "Utilisateur inconnu"
     else
-      @user.pickup = true
+      @user.pickups = true
       @user.save
       render about_path, notice: "Démotion effectuée"
     end
@@ -29,7 +29,7 @@ class GuildController < ApplicationController
     if @user.nil?
       render about_path, alert: "Utilisateur inconnu"
     else
-      @user.pickup = false
+      @user.pickups = false
       @user.save
       render about_path, notice: "Promotion effectuée"
     end

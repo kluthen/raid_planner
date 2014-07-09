@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140709165041) do
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "available",    default: true
+    t.integer  "available",    default: 0
   end
 
   create_table "pickups", force: true do |t|

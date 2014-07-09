@@ -32,8 +32,8 @@ Rails.application.routes.draw do
 
   put 'guild/promote_user/:uid' => 'guild#promote_user' , as: :user_promote_admin
   put 'guild/demote_user/:uid'  => 'guild#demote_user', as: :user_demote_admin
-  put 'guild/user_make_pickup/:uid' => 'guild#make_pickup', as: :user_make_pickup
-  put 'guild/user_make_guildmate/:uid' => 'guild#make_guildmate', as: :user_make_guildmate
+  put 'guild/make_pickup/:uid' => 'guild#make_pickup', as: :user_make_pickup
+  put 'guild/make_guildmate/:uid' => 'guild#make_guildmate', as: :user_make_guildmate
 
   delete 'guild/remove_user/:uid'  => 'guild#remove_user', as: :user_delete
 
