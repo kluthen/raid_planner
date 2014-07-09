@@ -7,7 +7,7 @@
       <% pp.role = event.roles.first %>
       <% pp.comment = "" %>
 
-    <%= simple_form_for(Participating.new, html: {class: "form-inline "}) do |f| %>
+    <%= simple_form_for(pp, html: {class: "form-inline "}) do |f| %>
       <%= f.error_notification %>
 
       <div class="pull-right">
