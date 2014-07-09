@@ -54,7 +54,7 @@
                       </div>
                       <%= pp.name %>&nbsp;                      
                       <span class="badge" data-classe="<%= pp.classe %>"><%= pp.classe %></span>&nbsp;
-                      <% unless pp.pickup.nil? %><span class="badge" data-classe="Pickup">Pickup</span>&nbsp;<%end%>
+                      <% if pp.is_pickup? %><span class="badge" data-classe="Pickup">Pickup</span>&nbsp;<%end%>
                       <% if pp.away? %><span class="badge" data-classe="Indisponible">Indisponible</span>&nbsp;<%end%>
                       <% if pp.unsure? %><span class="badge" data-classe="Indisponible">Pas sûre</span>&nbsp;<%end%>
                       <% unless pp.comment.nil? or pp.comment.empty? %><small><i class="fa fa-comment"></i>&nbsp;&nbsp;<%= pp.comment %></small><%end%>

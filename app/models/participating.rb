@@ -20,6 +20,14 @@ class Participating < ActiveRecord::Base
 		available == 2
 	end
 
+	def is_pickup?
+		if character != nil 
+			character.user.pickup == true
+		else
+			!not_pickup? 
+		end
+	end
+
 	def not_pickup?
 		pickup.nil?
 	end

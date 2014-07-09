@@ -36,6 +36,8 @@
 
     <div><%= f.label :username, "Pseudonyme" %><br />
     <%= f.text_field :username, autofocus: true, size: 35 %></div>
+    <div><%= f.label :username, "Pickup ?" %><br />
+    <%= f.check_box :pickup, autofocus: true %></div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>En attente de confirmation pour : <%= resource.unconfirmed_email %></div>
