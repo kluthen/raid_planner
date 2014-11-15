@@ -5,7 +5,7 @@ class GuildController < ApplicationController
 
   def index
   	@events = Event.recent
-  	@announcements = Announcement.recent.reverse
+  	@announcements = Announcement.recent
   end
 
   def about
