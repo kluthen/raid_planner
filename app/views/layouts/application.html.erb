@@ -42,7 +42,7 @@
         <% if user_signed_in?  %>
           <li><a href="<%= edit_user_registration_path %>">Mon Compte &nbsp;<%if current_user.characters.count == 0 %> <span style="background-color:darkred" title="Pas de personnages créé !" class="badge ">!</span><%end%></a> </li>
           <li><%= link_to "Guilde", about_path if user_signed_in? and  current_user.is_admin %></li>
-          <li><%= link_to "Forum", "http://lesecumeurs.forumactif.org/" %></li>
+          <li><%= link_to "Forum", "http://forum.ecumeurs.fr/" %></li>
           <li><%= link_to "Logout",  destroy_user_session_path , method: :delete%></li>
         <% else %>
           <li><%= link_to "Login", new_user_session_path %></li>

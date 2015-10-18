@@ -7,7 +7,7 @@ class Character < ActiveRecord::Base
 	belongs_to :user
 
 	def self.classes
-		["Guerrier", "Mage", "Voleur", "Clerc"]		
+		["Guerrier", "Mage", "Voleur", "Clerc", "Primaliste"]		
 	end
 
 	def friendly_name

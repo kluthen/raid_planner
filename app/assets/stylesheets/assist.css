@@ -14,6 +14,10 @@ form.form-inline div.control-group div.controls { display: inline-block; }
 	background-color: #CC0000; /* Rouge */
 }
 
+.badge[data-classe="Primaliste"] {
+	background-color: #7FFFD4; /* Rouge */
+}
+
 .badge[data-classe="Clerc"] {
 	background-color: #3A7A3A; /* Vert */
 }
